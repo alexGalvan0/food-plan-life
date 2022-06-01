@@ -1,18 +1,25 @@
-import React,{useState} from "react";
+import React,{useContext, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import validator from 'validator';
-
-
+import { userContext } from "../../App";
 import './Login.css'
 
-function Signup(){
-    const[email, setEmail] = useState("")
 
+function Signup(){
+
+    const[email, setEmail] = useState("")
     const[password, setPassword] = useState("")
-    
     const [submitted, setSubmitted] = useState(false)
+
+    const {userToken, setUserToken} = useContext(userContext);
+    let navigate = useNavigate();
 
     const handleSubmit =  async (e) =>{
         setSubmitted(true)
+        e.preventDefault()
+
+        navigate('/profile')
+        
         let requestOption = {
             method:"POST",
             headers:{ 'content-Type':'application/json' },
@@ -21,7 +28,8 @@ function Signup(){
         };
         let url = 'http://127.0.0.1:8000/login';
         const response = await fetch(url,requestOption)
-
+        let token = await response.json()
+        setUserToken( token.jwt)
     }
     const handleEmailInputChange = (e) =>{
         setEmail(e.target.value)
@@ -30,6 +38,7 @@ function Signup(){
         setPassword(e.target.value)
     }
     return(
+        
         <div>
             <form className="sign-up-form" style={{"borderRadius":"25px"}}>
                 <h2 className="SignupPage">Login</h2>
