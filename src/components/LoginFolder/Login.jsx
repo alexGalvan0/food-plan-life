@@ -11,14 +11,12 @@ function Signup(){
     const[password, setPassword] = useState("")
     const [submitted, setSubmitted] = useState(false)
 
-    const {userToken, setUserToken} = useContext(userContext);
+    //const {userToken, setUserToken} = useContext(userContext);
     let navigate = useNavigate();
 
     const handleSubmit =  async (e) =>{
         setSubmitted(true)
         e.preventDefault()
-
-        navigate('/profile')
         
         let requestOption = {
             method:"POST",
@@ -29,7 +27,9 @@ function Signup(){
         let url = 'http://127.0.0.1:8000/login';
         const response = await fetch(url,requestOption)
         let token = await response.json()
-        setUserToken( token.jwt)
+       // setUserToken(token.jwt)
+        localStorage.setItem('token',token.data.jwt)
+        navigate('/profile')
     }
     const handleEmailInputChange = (e) =>{
         setEmail(e.target.value)
