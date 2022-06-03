@@ -1,7 +1,6 @@
-import React,{useContext, useState} from "react";
+import React,{useState} from "react";
 import { useNavigate } from "react-router-dom";
 import validator from 'validator';
-import { userContext } from "../../App";
 import './Login.css'
 
 
@@ -15,21 +14,22 @@ function Signup(){
     let navigate = useNavigate();
 
     const handleSubmit =  async (e) =>{
+        navigate('/profile')
         setSubmitted(true)
         e.preventDefault()
         
         let requestOption = {
             method:"POST",
-            headers:{ 'content-Type':'application/json' },
+            headers:{ 'Content-Type': 'application/json',
+                        'Accept': 'application/json' },
             body: JSON.stringify({email:email,
                                 password:password})
         };
         let url = 'http://127.0.0.1:8000/login';
         const response = await fetch(url,requestOption)
         let token = await response.json()
-       // setUserToken(token.jwt)
-        localStorage.setItem('token',token.data.jwt)
-        navigate('/profile')
+        localStorage.setItem('token',token.jwt)
+        console.log(token.jwt)
     }
     const handleEmailInputChange = (e) =>{
         setEmail(e.target.value)

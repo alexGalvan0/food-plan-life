@@ -1,15 +1,14 @@
-import React,{useContext, Component} from "react";
-import { userContext } from "../../App";
+import React from "react";
+
 
 
 function Profile(){
-    const getProfile = () =>{
+    const  getProfile = async () =>{
         const config = {headers:{
-            Autherization: 'jwt: '+ localStorage.getItem('token')
+            Authorization: 'Token '+ localStorage.getItem('token')
         }}
-        fetch('http://127.0.0.1:8000/user',config).then(res =>{
-            console.log(res)
-        })
+        let res = await fetch('http://127.0.0.1:8000/user',config)
+        console.log(config)
     }
     return(
         <div>
