@@ -1,13 +1,10 @@
 import React,{useState} from "react";
+import AddMeal from "../AddMealFolder/AddMeal";
 
 
 
 function Profile(){
-
-    const [name,setName] = useState('')
-    const [type,setType] = useState('')
-    const [day,setDay] = useState('')
-    const [stuff, setStuff] = useState('')
+    const [meals, setMeals] = useState('')
 
     const  getProfile = async () =>{
         
@@ -17,15 +14,20 @@ function Profile(){
                              Authorization:`Bearer ${encoded_jwt}`
                         },
         }
-       let res = await fetch('http://127.0.0.1:8000/user/meals/',config)
+       let res = await fetch('http://localhost:8000/user/meals/',config)
        let response = await res.json()
-       setStuff(JSON.stringify(response))
+       let mealView = response
+       console.log(mealView)
+       setMeals(JSON.stringify(mealView))
 
     }
     return(
         <div>
             <h2 onClick={getProfile} className="name">meals</h2>
-            <p>{stuff}</p>
+            <p>{meals}</p>
+            <br/>
+
+        <AddMeal/>
         </div>
     )
 
