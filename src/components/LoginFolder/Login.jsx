@@ -23,13 +23,12 @@ function Signup(){
             headers:{ 'Content-Type': 'application/json',
                         'Accept': 'application/json' },
             body: JSON.stringify({email:email,
-                                password:password})
+                                    password:password})
         };
-        let url = 'http://127.0.0.1:8000/login';
+        let url = 'http://127.0.0.1:8000/user/login/';
         const response = await fetch(url,requestOption)
         let token = await response.json()
-        localStorage.setItem('token',token.jwt)
-        console.log(token.jwt)
+        localStorage.setItem('token',token.access)
     }
     const handleEmailInputChange = (e) =>{
         setEmail(e.target.value)

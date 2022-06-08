@@ -15,6 +15,8 @@ function Signup(){
 
     const handleSubmit =  async (e) =>{
         setSubmitted(true)
+        e.preventDefault()
+        
         let requestOption = {
             method:"POST",
             headers:{ 'content-Type':'application/json' },
@@ -23,7 +25,7 @@ function Signup(){
                                     email:email,
                                     password:password})
         };
-        let url = 'http://127.0.0.1:8000/register';
+        let url = 'http://127.0.0.1:8000/register/';
         const response = await fetch(url,requestOption)
 
     }
