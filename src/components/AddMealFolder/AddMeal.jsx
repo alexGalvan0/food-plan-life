@@ -41,7 +41,7 @@ function AddMeal(){
     return(
         
         <div>
-            <form className="sign-up-form" style={{"borderRadius":"25px"}}>
+            <form className="add-meal-form" style={{"borderRadius":"25px"}}>
                 <h2 className="SignupPage">Add Meal</h2>
 
                 <div className="form-inputs">

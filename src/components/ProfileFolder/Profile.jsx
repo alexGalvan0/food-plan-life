@@ -30,34 +30,36 @@ function Profile(){
 
     let navigate = useNavigate();
     return(
-        <div>
+        <div className="profile-container">
             <input type="button" value="Get Plan" onClick={getData} />
-            {Array.isArray(userData) && userData.map(row => {  
-                return(
-                    <div>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <th key={row.id}>{row.day}</th>
-                            </tr>
-                            <tr>
-                                <td key={row.id}>{row.name}</td>
-                            </tr>
-                            <tr>
-                                <td key={row.id}>{row.type}</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                )
-            })}
-            <AddMeal/>
-
             <input type="button" value="Logout" onClick={() => {
                 localStorage.removeItem('token') 
                 navigate('/login')
                 
             }} />
+
+
+            <div className="table-container">
+            <AddMeal/>
+                {Array.isArray(userData) && userData.map(row => {  
+                    return(
+
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <th key={row.id}>{row.day}</th>
+                                </tr>
+                                <tr>
+                                    <td key={row.id}>{row.name}</td>
+                                </tr>
+                                <tr>
+                                    <td key={row.id}>{row.type}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                    ) 
+                })}
+            </div>
         </div>
     )
 }
