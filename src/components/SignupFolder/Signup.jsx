@@ -15,7 +15,7 @@ function Signup(){
 
     const handleSubmit =  async (e) =>{
         setSubmitted(true)
-        e.preventDefault()
+
         
         let requestOption = {
             method:"POST",

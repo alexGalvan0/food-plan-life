@@ -16,7 +16,6 @@ function Signup(){
     const handleSubmit =  async (e) =>{
         navigate('/profile')
         setSubmitted(true)
-        e.preventDefault()
         
         let requestOption = {
             method:"POST",
@@ -49,7 +48,7 @@ function Signup(){
                             <input className="form-control" type={"email"} id="email-input"
                                     onChange={handleEmailInputChange}
                                     value={email}></input> 
-                                                    {submitted && !email || submitted && !validator.isEmail(email) ?
+                                                    {submitted && email == "" || submitted && !validator.isEmail(email) ?
                                                     <span className="form-validation">Please Enter Email</span>:null}
                         </label>
                         <label>
