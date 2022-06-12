@@ -1,14 +1,16 @@
-import React,{useState} from "react";
+import React,{useState, useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import validator from 'validator';
+import { userContext } from '../../App'
 import './Login.css'
 
 
-function Signup(){
-
+function Login(){
+    //Use State
     const[email, setEmail] = useState("")
     const[password, setPassword] = useState("")
     const [submitted, setSubmitted] = useState(false)
+
 
     //const {userToken, setUserToken} = useContext(userContext);
     let navigate = useNavigate();
@@ -28,6 +30,7 @@ function Signup(){
         const response = await fetch(url,requestOption)
         let token = await response.json()
         localStorage.setItem('token',token.access)
+        window.location.reload(false);
     }
     const handleEmailInputChange = (e) =>{
         setEmail(e.target.value)
@@ -48,7 +51,7 @@ function Signup(){
                             <input className="form-control" type={"email"} id="email-input"
                                     onChange={handleEmailInputChange}
                                     value={email}></input> 
-                                                    {submitted && email == "" || submitted && !validator.isEmail(email) ?
+                                                    {(submitted && email == "") || (submitted && !validator.isEmail(email)) ?
                                                     <span className="form-validation">Please Enter Email</span>:null}
                         </label>
                         <label>
@@ -64,4 +67,4 @@ function Signup(){
         </div>
     )
 }
-export default Signup
+export default Login

@@ -11,13 +11,13 @@ import Profile from './components/ProfileFolder/Profile';
 export const userContext = createContext(null);
 
 function App() {
-  const [userToken, setUserToken] = useState('')
+  const [user, setUser] = useState(null)
   return (
       <Router>
         <div className="App">
           <Navbar />
           <div className='page-container'>
-          <userContext.Provider value={{userToken, setUserToken}}>
+          <userContext.Provider value={{user, setUser}}>
             <Routes>
                 <Route exact path="/" element={<Index/>} />
                 <Route exact path="/login" element={<Login/>} />

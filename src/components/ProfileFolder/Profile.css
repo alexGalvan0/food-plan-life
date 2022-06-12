@@ -44,4 +44,16 @@ tbody {
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+.delete-meal:hover {
+  cursor: pointer;
+}
+
+.trash {
+  border: none;
+}
+
+.logout-btn:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=Profile.css.map */

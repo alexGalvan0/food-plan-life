@@ -1,7 +1,5 @@
 import React,{useState} from "react";
 import validator from 'validator';
-
-
 import './Signup.css'
 
 function Signup(){
@@ -26,7 +24,7 @@ function Signup(){
                                     password:password})
         };
         let url = 'http://127.0.0.1:8000/register/';
-        const response = await fetch(url,requestOption)
+        await fetch(url,requestOption)
 
     }
     const handleFirstNameInputChange = (e) =>{
@@ -52,7 +50,7 @@ function Signup(){
                             <input className ="form-control" type={"text"} id="first-name-input" 
                                     onChange={handleFirstNameInputChange} 
                                     value={firstName} ></input> 
-                            {submitted && !firstName? <span className="form-validation">Please Enter First Name</span>: null} 
+                            {(submitted) && (!firstName)? <span className="form-validation">Please Enter First Name</span>: null} 
                         </label>
                         <label>
                     Last Name:
@@ -66,7 +64,7 @@ function Signup(){
                             <input className="form-control" type={"email"} id="email-input"
                                     onChange={handleEmailInputChange}
                                     value={email}></input> 
-                                                    {submitted && !email || submitted && !validator.isEmail(email) ?
+                                                    {(submitted && !email )|| (submitted && !validator.isEmail(email)) ?
                                                     <span className="form-validation">Please Enter Email</span>:null}
                         </label>
                         <label>

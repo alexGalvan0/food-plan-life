@@ -11,8 +11,9 @@ function AddMeal(){
 
     //const {userToken, setUserToken} = useContext(userContext);
     const handleSubmit =  async (e) =>{
-
+        window.location.reload(false);
         setSubmitted(true)
+        e.preventDefault()
 
         const encoded_jwt = localStorage.getItem('token')
         let requestOption = {
@@ -27,6 +28,7 @@ function AddMeal(){
         let res = await fetch("http://localhost:8000/register/meal/",requestOption)
         let resp = await res.json()
         console.log(resp)
+        
        
     }
     const handleNameInputChange = (e) =>{
@@ -61,11 +63,20 @@ function AddMeal(){
                                 value={type}></input>
                         {submitted && !type?<span className="form-validation">Please pick a type</span>:null}
                 </label>
-                <label>
+                <label className="dayOfMeal">
                     Day of Meal:
-                        <input className="form-control" id="day-name-input" type={"day"}
-                                onChange={handleDayInputChange}
-                                value={day}></input>
+                        <select className="form-control" id="day-name-input" type={"day"}
+                            onChange={handleDayInputChange}
+                            value={day}>
+                            <option value=""></option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
                         {submitted && !type?<span className="form-validation">Please pick a day</span>:null}
                 </label>
                 </div>
