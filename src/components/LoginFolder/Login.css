@@ -1,3 +1,15 @@
+.loggin-comp-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 3rem;
+}
+
 .sign-up-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6,14 +18,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 20em;
+  height: 30em;
+  background-color: #272D2F;
+  color: white;
   gap: 10px;
-  border: 1px solid #272D2F;
-  padding: 10px;
-  margin: 0 100px;
-  margin-top: 10px;
 }
 
 .form-inputs {
@@ -33,5 +42,11 @@
 .form-validation {
   color: red;
   font-size: .75rem;
+}
+
+.loggin-img {
+  width: 40rem;
+  border-radius: 25px;
+  margin-left: 10rem;
 }
 /*# sourceMappingURL=Login.css.map */

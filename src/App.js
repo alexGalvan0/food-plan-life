@@ -1,5 +1,5 @@
 import './App.css';
-import React, { createContext, useState } from 'react';
+import React, {  useState ,useContext} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/NavFolder/Navbar';
 import Index from './components/IndexFolder/Index';
@@ -7,17 +7,24 @@ import Login from './components/LoginFolder/Login';
 import About from './components/AboutFolder/About';
 import Signup from './components/SignupFolder/Signup';
 import Profile from './components/ProfileFolder/Profile';
+import { UserContext } from './GlobalContext';
+import { LogoutBtn } from './components/NavFolder/LogoutBtn';
 
-export const userContext = createContext(null);
+
+
 
 function App() {
+
   const [user, setUser] = useState(null)
   return (
       <Router>
         <div className="App">
           <Navbar />
+
           <div className='page-container'>
-          <userContext.Provider value={{user, setUser}}>
+
+
+          <UserContext.Provider value={{user, setUser}}>
             <Routes>
                 <Route exact path="/" element={<Index/>} />
                 <Route exact path="/login" element={<Login/>} />
@@ -25,7 +32,8 @@ function App() {
                 <Route exact path="/signup" element={<Signup/>} />
                 <Route exact path="/profile" element={<Profile/>} />
             </Routes>
-          </userContext.Provider>
+
+          </UserContext.Provider>
           </div>
         </div>
       </Router>

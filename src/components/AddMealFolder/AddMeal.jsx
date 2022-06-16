@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import './AddMeal.css'
 
 
@@ -11,9 +11,13 @@ function AddMeal(){
 
     //const {userToken, setUserToken} = useContext(userContext);
     const handleSubmit =  async (e) =>{
-        window.location.reload(false);
         setSubmitted(true)
-        e.preventDefault()
+        if(name,type,day){
+            window.location.reload();
+
+        }else{
+            e.preventDefault()
+        }
 
         const encoded_jwt = localStorage.getItem('token')
         let requestOption = {
@@ -26,11 +30,11 @@ function AddMeal(){
                                 })
                             };
         let res = await fetch("http://localhost:8000/register/meal/",requestOption)
-        let resp = await res.json()
-        console.log(resp)
-        
-       
+        let resp = await res.json()     
+        console.log(name)
     }
+
+
     const handleNameInputChange = (e) =>{
         setName(e.target.value)
     }
@@ -43,28 +47,28 @@ function AddMeal(){
     return(
         
         <div>
-            <form className="add-meal-form" style={{"borderRadius":"25px"}}>
-                <h2 className="SignupPage">Add Meal</h2>
+            <form className="add-meal-form" >
+                <h2 className="SignupPage">ADD MEAL</h2>
 
                 <div className="form-inputs">
 
                         <label>
-                    Meal Name:
+                    MEAL NAME:
                             <input className="form-control" type={"name"} id="name-input"
                                     onChange={handleNameInputChange}
                                     value={name}></input> 
-                                                    {submitted && !name?
+                                                    {submitted && !name ?
                                                     <span className="form-validation">Please Enter Meal name</span>:null}
                         </label>
                         <label>
-                    Type of Meal:
+                    TYPE OF MEAL:
                         <input className="form-control" id="type-name-input" type={"type"}
                                 onChange={handleTypeInputChange}
                                 value={type}></input>
                         {submitted && !type?<span className="form-validation">Please pick a type</span>:null}
                 </label>
                 <label className="dayOfMeal">
-                    Day of Meal:
+                    DAY OF MEAL:
                         <select className="form-control" id="day-name-input" type={"day"}
                             onChange={handleDayInputChange}
                             value={day}>

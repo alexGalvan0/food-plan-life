@@ -1,13 +1,18 @@
 
+.loggin-comp-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 3rem;
+}
 .sign-up-form{
     display: flex;
     flex-direction: column;
-   align-items:center;
+    width: 20em;
+    height: 30em;
+    background-color: #272D2F;;
+    color: white;
     gap: 10px;
-    border: 1px solid #272D2F;
-    padding: 10px;
-    margin: 0 100px;
-    margin-top: 10px;
 }
 .form-inputs{
     display: flex;
@@ -19,3 +24,9 @@
     color:red;
     font-size: .75rem;
 }
+.loggin-img{
+    width: 40rem;
+    border-radius: 25px;
+    margin-left: 10rem;
+}
+

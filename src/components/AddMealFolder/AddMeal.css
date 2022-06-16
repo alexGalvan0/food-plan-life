@@ -1,21 +1,28 @@
 .add-meal-form {
   width: 200px;
-  border: 1px solid black;
-  margin: 0 20px;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  top: 10rem;
+}
+
+#signup-submit {
+  background-color: #ffc529;
+  border: none;
+  border-radius: 25px;
+  margin-bottom: 20px;
 }
 
 .dayOfMeal {
-  margin-right: 20%;
-  padding-bottom: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 /*# sourceMappingURL=AddMeal.css.map */

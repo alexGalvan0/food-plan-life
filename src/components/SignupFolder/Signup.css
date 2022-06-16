@@ -1,19 +1,13 @@
-.sign-up-form {
+.signupCompContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 10px;
-  border: 1px solid #272D2F;
-  padding: 10px;
-  margin: 0 100px;
-  margin-top: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 3rem;
 }
 
 .form-inputs {
@@ -24,14 +18,18 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  gap: 5px;
+  margin-right: 15%;
+  gap: 10px;
 }
 
 .form-validation {
   color: red;
   font-size: .75rem;
+}
+
+.signup-img {
+  width: 33rem;
+  border-radius: 25px;
+  margin-left: 10rem;
 }
 /*# sourceMappingURL=Signup.css.map */

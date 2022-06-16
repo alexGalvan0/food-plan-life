@@ -1,42 +1,35 @@
-tr{
-    background-color: rgba(255, 255, 255, 0.8);
+.logout-btn{
+    position: relative;
 
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
+    cursor: pointer;
 }
 
-th{
-    font-size: small;
-    background: lightgrey;
-    border-bottom: 2px solid black;
-}
-td{
-    font-size: small;
-    border-right: 1px solid black;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
-}
 tbody{
-    gap: 5px;
-}
-
-.table-container{
-    display: flex;
-    justify-content: center;
-    margin-top:10px;
+    color: red;
+    display: grid;
+    grid-template-columns: repeat(4,100px);
 }
 .profile-container{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 3rem;   
+}
+.delete-meal{
+    cursor: pointer;
+}
+.profile-img{
+    width: 33rem;
+    border-radius: 25px;
+    margin-left: 10rem;
+}
+table{
+    display: flex;
     justify-content: center;
 }
-.delete-meal:hover{
-    cursor: pointer;
-}
-.trash{
-    border: none
-}
-.logout-btn:hover{
-    cursor: pointer;
+.table-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
 }
