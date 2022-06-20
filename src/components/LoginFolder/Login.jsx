@@ -1,3 +1,4 @@
+import { type } from "@testing-library/user-event/dist/type";
 import React,{useState, useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import validator from 'validator';
@@ -20,12 +21,6 @@ function Login(){
         localStorage.removeItem('token')
         e.preventDefault();
         setSubmitted(true)
-
-        if(email,password){
-            navigate('/profile')
-        }else{
-            e.preventDefault()
-        }
         
         let requestOption = {
             method:"POST",
@@ -50,6 +45,18 @@ function Login(){
         let resps = await nameResponse.json()
         const firstName = await resps[0].first_name
         setUser( localStorage.setItem('firstName', firstName))
+
+        const noUser = () =>{
+            e.preventDefault()
+            alert('No User Found, or Wrong Password')
+        }
+
+        if(email,password){
+            !nameResponse.ok==200 ? noUser():navigate('/profile')
+        }else{
+            e.preventDefault()
+
+        }
     }
     const handleEmailInputChange = (e) =>{
         setEmail(e.target.value)

@@ -9,8 +9,6 @@ import { UserContext } from '../../GlobalContext'
 
 
 function Profile(){
-
-
     const {setUser,user} = useContext(UserContext);
 
     const url = 'http://localhost:8000/user/meals/';
@@ -24,11 +22,11 @@ function Profile(){
         fetch(url,config)
         .then(resp => resp.json())
         .then(data => setUserData(data))
-
     },[])
 
+    //useEffect(()=>{window.location.reload('false')},[])
+
     let navigate = useNavigate();
-    
 
     const delteMeal = (mealId) =>{
         const delUrl = 'http://localhost:8000/delete/meal/'
@@ -39,7 +37,6 @@ function Profile(){
         fetch(delUrl,config2)
         window.location.reload(false);
     }
-   
     return(
 
         <div className="profile-container">
