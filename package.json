@@ -1,7 +1,7 @@
 {
   "name": "food-plan-life",
   "version": "0.1.0",
-  "engine":{ "node": "17.0.1"},
+  "engine":{ "node": "17.0.1","npm":"8.1.0"},
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
